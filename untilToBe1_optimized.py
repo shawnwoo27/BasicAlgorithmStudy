@@ -5,19 +5,11 @@ while True:
     temp = n//k
     remainder = n % k
 
-    if n <= k:
+    if n < k:
+        result += n-1
         break
 
     n = temp
     result += 1+remainder
 
 print(result)
-
-
-
-
-
-
-
-
-
