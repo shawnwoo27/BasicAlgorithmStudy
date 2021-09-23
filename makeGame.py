@@ -8,11 +8,12 @@ d[x][y] = 1  # 현재 좌표 방문 처리
 # 맵 지형 입력
 array = []
 for i in range(n):
-        array.append(list(map(int, input().split())))
+    array.append(list(map(int, input().split())))
 
 # 방향값 정의
 dx = [-1, 0, 1, 0]
 dy = [0, 1, 0, -1]
+
 
 # 좌회전(반시계 90도)
 def turn_left():
@@ -20,6 +21,7 @@ def turn_left():
     direction -= 1
     if direction == -1:
         direction = 3
+
 
 count = 1
 turn_time = 0  # 회전 횟수
