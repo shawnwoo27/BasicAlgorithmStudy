@@ -1,11 +1,20 @@
 n = int(input())
-data = list(map(int, input().split()))
-data.sort()
+coins = list(map(int, input().split()))
 
-target = 1
-for x in data:
-    if target < x:
+coins.sort()
+
+target = 2
+store = 0
+
+if coins[0] != '1':
+    target = 1
+
+for i in range(len(coins)):
+    if coins[i] == target:
         break
-    target += x
+    store += len[i]
+    if store == target:
+        break
+    target += 1
 
 print(target)
