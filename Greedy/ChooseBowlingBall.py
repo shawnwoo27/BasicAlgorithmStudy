@@ -1,14 +1,13 @@
 n, m = map(int, input().split())
-data = list(map(int, input().split()))
+weight = list(map(int, input().split()))
 
-array = [0] * 11
-
-for x in data:
-    array[x] += 1
-
+array = [0] * 10
 result = 0
 
-for i in range(1, m + 1):
+for i in weight:
+    array[i-1] += 1
+
+for i in range(m):
     n -= array[i]
     result += array[i] * n
 
