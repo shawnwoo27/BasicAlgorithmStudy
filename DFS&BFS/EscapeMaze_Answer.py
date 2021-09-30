@@ -9,6 +9,8 @@ for i in range(n):
 dx = [-1, 1, 0, 0]
 dy = [0, 0, -1, 1]
 
+temp = []
+
 
 def bfs(x, y):
     queue = deque()
@@ -16,6 +18,7 @@ def bfs(x, y):
 
     while queue:
         x, y = queue.popleft()
+        temp.append((x, y))
 
         for i in range(4):
             nx = x + dx[i]
@@ -32,4 +35,15 @@ def bfs(x, y):
     return graph[n - 1][m - 1]
 
 
+for i in range(4):
+    nx = x + dx[i]
+    ny = y + dy[i]
+
+    if nx < 0 or ny < 0 or nx >= n or ny >= m:
+        continue
+
+    if graph[nx][ny] == graph[x][y] - 1:
+        path.append((nx, ny))
+
 print(bfs(0, 0))
+print(temp)
