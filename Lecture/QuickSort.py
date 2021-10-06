@@ -9,27 +9,24 @@ def quick_sort(a, p, r):
 
 
 def partition(a, p, r):
-    pivot = a[p]
+    pivot = p
+    left = p + 1
+    right = r
 
-    while True:
-        for i in range(p+1, r):
-            if a[i] > pivot:
-                small_index = i
-                break
+    while right >= left:
+        while left <= r and a[left] <= a[pivot]:
+            left += 1
 
-        for j in range(r-1, p, -1):
-            if a[j] < pivot:
-                big_index = j
-                break
+        while right > p and a[right] >= a[pivot]:
+            right -= 1
 
-        if big_index < small_index:
-            a[p] = a[big_index]
-            break
+        if left > right:
+            a[pivot], a[right] = a[right], a[pivot]
+            return right
 
         else:
-            a[big_index], a[small_index] = a[small_index], a[big_index]
-
-    return big_index
+            a[left], a[right] = a[right], a[left]
 
 
-print(quick_sort(a, 0, len(a)-1))
+quick_sort(a, 0, len(a)-1)
+print(a)
