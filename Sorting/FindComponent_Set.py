@@ -1,5 +1,5 @@
 n = int(input())
-array = set(map(int, input().split()))
+array = list(map(int, input().split()))
 
 m = int(input())
 x = list(map(int, input().split()))
@@ -9,3 +9,5 @@ for i in x:
         print('yes', end=' ')
     else:
         print('no', end=' ')
+
+# set 자료형, hash set
