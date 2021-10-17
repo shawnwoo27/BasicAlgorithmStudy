@@ -3,11 +3,13 @@ array = []
 for i in range(n):
     array.append(int(input()))
 
-array.sort()
-s = 0
-s += (array[0] + array[1]) * (n-1)
+result = 0
 
-for i in range(2, n):
-    s += array[i] * (n-i)
+for i in range(n-1):
+    array.sort()
+    result += array[0] + array[1]
+    array[0] = array[0] + array[1]
+    array[1] = 10001
+    print(array)
 
-print(s)
+print(result)

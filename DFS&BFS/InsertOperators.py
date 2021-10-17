@@ -7,23 +7,39 @@ maximum = -1e+22
 
 
 def insert_operator(i, result):
-if operators[0] > 0:
-    result = arr[i] + arr[i+1]
-    operators[0] -= 1
-    insert_operator(i+1, result)
-    operators[0] += 1
+    global minimum, maximum
 
-if operators[1] > 0:
-    arr[0] - arr[1]
-    operators[1] -= 1
+    if i == n:
+        minimum = min(minimum, result)
+        maximum = max(maximum, result)
 
-if operators[2] > 0:
-    arr[0] * arr[1]
-    operators[2] -= 1
+    else:
+        if operators[0] > 0:
+            operators[0] -= 1
+            insert_operator(i + 1, result + arr[i])
+            operators[0] += 1
 
-if operators[3] > 0:
-    arr[0] // arr[1]
-    operators[3] -= 1
+        if operators[1] > 0:
+            operators[1] -= 1
+            insert_operator(i + 1, result - arr[i])
+            operators[1] += 1
+
+        if operators[2] > 0:
+            operators[2] -= 1
+            insert_operator(i + 1, result * arr[i])
+            operators[2] += 1
+
+        if operators[3] > 0:
+            operators[3] -= 1
+            insert_operator(i + 1, result // arr[i])
+            operators[3] += 1
+
+
+insert_operator(1, arr[0])
+print(maximum)
+print(minimum)
+print(-1//3)
+
 
 
 
