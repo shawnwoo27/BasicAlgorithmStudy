@@ -2,8 +2,8 @@ def promising(queen, row):
     for i in range(row):
         # 이전 row의 직선, 대각선에 있는지 모두 조사한다.
         if (queen[row] == queen[i]) or (row - i == abs(queen[row] - queen[i])):
-            return 0
-    return 1
+            return False
+    return True
 
 
 def dfs(queen, row, n):
@@ -12,7 +12,6 @@ def dfs(queen, row, n):
     if n == row:
         # 끝까지 도달했으면 count 증가함
         count += 1
-        print(row)
         return
 
     for col in range(n):
