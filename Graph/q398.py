@@ -17,7 +17,6 @@ for i in range(n):
     y_list.append((i, y))
     z_list.append((i, z))
 
-
 x_list.sort(key=lambda e: e[1])
 y_list.sort(key=lambda e: e[1])
 z_list.sort(key=lambda e: e[1])
@@ -41,8 +40,6 @@ start = 0
 visited = [False] * n
 D = [sys.maxsize] * n
 D[start] = 0
-previous = [None] * 7
-previous[start] = 0
 
 for i in range(n):
     m = -1
@@ -57,7 +54,6 @@ for i in range(n):
         if not visited[vNum]:
             if distance < D[vNum]:
                 D[vNum] = distance
-                previous[vNum] = m
 
 min_cost = 0
 for i in range(1, n):
