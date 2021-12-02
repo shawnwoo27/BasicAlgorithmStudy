@@ -109,6 +109,7 @@ def runGame():
     rockSize = rock.get_rect().size  # 운석 크기
     rockWidth = rockSize[0]
     rockHeight = rockSize[1]
+    destroySound = pygame.mixer.Sound(random.choice(explosionSound))
 
     rockX = random.randrange(0, padWidth - rockWidth)  # 운석위치 초기 설정
     rockY = 0
@@ -202,6 +203,7 @@ def runGame():
         # 운석을 맞춘 경우
         if isShot:
             drawObject(explosion, rockX, rockY)  # 운석 폭발
+            destroySound.play()
 
             # 새로운 운석위치 랜덤 생성
             rock = pygame.image.load(random.choice(rockImage))
@@ -210,7 +212,7 @@ def runGame():
             rockHeight = rockSize[1]
             rockX = random.randrange(0, padWidth - rockWidth)
             rockY = 0
-
+            destroySound = pygame.mixer.Sound(random.choice(explosionSound))
             isShot = False
 
             rockSpeed += 0.02
